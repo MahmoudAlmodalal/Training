@@ -1,0 +1,107 @@
+  /* Basic Reset and Font Setup */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+
+        /* Table Container Styling */
+        .table-container {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            /* Ensure it doesn't overflow on small mobile screens */
+            overflow-x: auto;
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #ccc;
+            padding: 4px; /* Simulating the white padding around the table in the image */
+        }
+
+        /* Main Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Header Styling */
+        thead tr {
+            background: linear-gradient(to bottom, #86c428 0%, #6dbd28 100%);
+            color: white;
+            text-align: left;
+        }
+
+        th {
+            padding: 8px 10px;
+            font-weight: 600;
+            border-right: 1px solid #5aa01a; /* Darker green divider */
+            border-bottom: 1px solid #ccc;
+        }
+
+        th:last-child {
+            border-right: none;
+        }
+
+        /* Cell Styling */
+        td {
+            padding: 6px 10px;
+            border-right: 1px solid #dcdcdc;
+            vertical-align: middle;
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        /* Zebra Striping */
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f3f2e4; /* Beige tone from image */
+        }
+
+        /* Hover Effect (Optional but nice) */
+        tbody tr:hover {
+            background-color: #e8e8e8;
+        }
+
+        /* Flag and Country alignment */
+        .country-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flag-icon {
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* Checkbox Styling */
+        input[type="checkbox"] {
+            margin: 0;
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            th, td {
+                padding: 8px 5px;
+                font-size: 13px;
+            }
+            .flag-icon {
+                font-size: 1em;
+            }
+        }

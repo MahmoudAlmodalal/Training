@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Form Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="login-card">
+        
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <clipPath id="avatar-clip">
+                        <circle cx="80" cy="55" r="35" />
+                    </clipPath>
+
+                    <linearGradient id="half-blue-text" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#4fc3f7;stop-opacity:1" /> <stop offset="50%" style="stop-color:#0288d1;stop-opacity:1" /> <stop offset="100%" style="stop-color:#0288d1;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+
+                <circle cx="80" cy="55" r="35" fill="#fce4ec" />
+
+                <g clip-path="url(#avatar-clip)">
+                    <circle cx="80" cy="45" r="12" fill="#ab47bc" />
+                    <ellipse cx="80" cy="85" rx="24" ry="26" fill="#ab47bc" />
+                </g>
+
+                <text x="80" y="95" 
+                      text-anchor="middle" 
+                      font-family="'Nunito', sans-serif" 
+                      font-weight="900" 
+                      font-size="38" 
+                      fill="url(#half-blue-text)"
+                      letter-spacing="0">LOGIN</text>
+
+                <g transform="translate(108, 75) rotate(-15)">
+                    <path d="M0 0 L 16 16 L 9 18 L 13 26 L 9 28 L 5 20 L 0 24 Z" 
+                          fill="#0277bd" 
+                          stroke="white" 
+                          stroke-width="2"
+                          stroke-linejoin="round" />
+                </g>
+            </svg>
+        </div>
+        <form action="" method="post"> <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-actions">
+                <label class="remember-me">
+                    <input type="checkbox" name="remember"> Remember Me
+                </label>
+                <a href="#" class="forgot-password">Forget Password?</a>
+            </div>
+
+            <button type="submit" class="btn-login">login</button>
+        </form>
+    </div>
+
+</body>
+</html>
