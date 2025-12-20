@@ -1,0 +1,11 @@
+Task: Toggle Content on Button Click
+Objective: Use jQuery to show/hide a block of content when a button is clicked.
+
+Task: Highlight Selected List Item
+Objective: When a user clicks on a list item (<li>), it should be highlighted (e.g., background color changes), and any previously highlighted item should go back to normal.
+
+Task: Form Validation with jQuery
+Objective: Validate a simple form using jQuery before submission. The form should not submit if fields are empty, and an error message should be shown.
+
+Task: Accordion Menu
+Objective: Create an accordion-style menu where clicking on a section header expands its content and collapses others.

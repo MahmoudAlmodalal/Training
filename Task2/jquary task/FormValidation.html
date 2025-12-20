@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .error { color: red; display: none; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <div class="error" id="errorMsg">All fields are required!</div>
+        
+        <p>Name: <input type="text" id="name"></p>
+        <p>Email: <input type="text" id="email"></p>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            $("#myForm").submit(function(event){
+                var nameVal = $("#name").val().trim(); // .trim() removes extra spaces
+                var emailVal = $("#email").val().trim();              
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                
+                if(nameVal === "" || emailVal === "") {                    
+                    event.preventDefault(); 
+                    $("#errorMsg").text("All fields are required!").slideDown();                    
+                } else if (emailPattern.test(emailVal) == false) {
+                    event.preventDefault();
+                    $("#errorMsg").text("Please enter a valid email address!").slideDown();                   
+                } else {                   
+                    $("#errorMsg").hide();
+                    alert("Form Submitted Successfully!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body style="transition: background-color 0.5s ease;">
+    
+    <h2>Theme Switcher</h2>
+    <p>Click a button to change the background.</p>
+
+    <button onclick="changeColor('#03a9f4')">Blue</button>
+    <button onclick="changeColor('#ab47bc')">Purple</button>
+    <button onclick="changeColor('#e0e0e0')">Reset Grey</button>
+
+    <script>
+        function changeColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>

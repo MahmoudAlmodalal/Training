@@ -1,0 +1,8 @@
+ Task: Live Character Counter
+Objective: Build a live character counter for a textarea. Show how many characters the user has typed out of a max limit.
+
+ Task: Change Background Color on Button Click
+Objective: Create buttons that change the background color of the page when clicked.
+
+ Task: Simple Number Guessing Game
+Objective: Create a number guessing game where the user guesses a number between 1 and 10. The script gives feedback like “Too low”, “Too high”, or “Correct!”.

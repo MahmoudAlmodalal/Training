@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .result { margin-top: 10px; font-weight: bold; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <h2>Guess the Number (1-10)</h2>
+    
+    <input type="number" id="userGuess" min="1" max="10">
+    <button onclick="checkGuess()">Guess</button>
+    
+    <div id="feedback" class="result"></div>
+
+    <script>
+        
+        let randomNumber = Math.floor(Math.random() * 10) + 1;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('userGuess').value);
+            const feedback = document.getElementById('feedback');
+
+            feedback.className = "result";
+
+            if (!userGuess || userGuess < 1 || userGuess > 10) {
+                feedback.textContent = "Please enter a valid number between 1 and 10.";
+                feedback.classList.add("error");
+            } else if (userGuess === randomNumber) {
+                feedback.textContent = "Correct! You guessed it!";
+                feedback.classList.add("success");
+                // Optional: Generate a new number so they can play again
+                // randomNumber = Math.floor(Math.random() * 10) + 1; 
+            } else if (userGuess > randomNumber) {
+                feedback.textContent = "Too high! Try again.";
+                feedback.classList.add("error");
+            } else {
+                feedback.textContent = "Too low! Try again.";
+                feedback.classList.add("error");
+            }
+        }
+    </script>
+
+</body>
+</html>
