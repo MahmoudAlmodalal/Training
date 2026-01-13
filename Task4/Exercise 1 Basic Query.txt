@@ -1,0 +1,119 @@
+Exercise 1: 
+
+Table: Employees
+
+employee_id | name     | department | salary
+1           | Alice    | HR         | 50000
+2           | Bob      | IT         | 70000
+3           | Charlie  | Finance    | 60000
+4           | David    | IT         | 80000
+5           | Eva      | HR         | 55000
+
+Task 1:
+Write a query to retrieve all employees who work in the IT department.
+
+SELECT * FROM Employees 
+WHERE department = 'IT';
+
+
+Task 2:
+Write a query to find the employee(s) with a salary greater than 60000.
+
+SELECT * FROM Employees 
+WHERE salary > 60000;
+
+
+Task 3:
+Write a query to list all employees, sorted by salary in descending order.
+
+SELECT * FROM Employees 
+ORDER BY salary DESC;
+
+
+Task 4:
+Find the average salary for each department.
+
+SELECT department, AVG(salary) AS average_salary 
+FROM Employees 
+GROUP BY department;
+
+
+Task 5:
+Update an employee's salary.
+Write an SQL query to increase the salary of an employee (e.g., with employee_id = 3) by 10%.
+
+UPDATE Employees 
+SET salary = salary * 1.10 
+WHERE employee_id = 3;
+
+
+Task 6: 
+Delete an employee record.
+Write an SQL query to delete the record of an employee (e.g., employee_id = 2).
+
+
+DELETE FROM Employees 
+WHERE employee_id = 2;
+
+----------------------------------------------------------------------------------------------------------------
+
+ Exercise 2: 
+
+Tables:
+
+Employees
+
+
+employee_id | name    | department_id
+1 	    | Alice   | 1
+2           | Bob     | 2
+3           | Charlie | 3
+4           | David   | 2
+5           | Eva     | 1
+
+
+Departments
+
+department_id | department_name
+1             | HR
+2             | IT
+3             | Finance
+
+
+Task 1:
+Write a query to list all employees along with their department names.
+
+SELECT Employees.name, Departments.department_name 
+FROM Employees 
+INNER JOIN Departments ON Employees.department_id = Departments.department_id;
+
+
+Task 2:
+Find the employees who earn more than the average salary.
+
+SELECT * FROM Employees 
+WHERE salary > (SELECT AVG(salary) FROM Employees);
+
+
+Task 3:
+Write a query that shows employee name and a new column called salary_level:
+"High" if salary > 70000
+"Medium" if salary between 50000 and 70000
+"Low" if salary < 50000.
+
+SELECT name, 
+       CASE 
+           WHEN salary > 70000 THEN 'High'
+           WHEN salary BETWEEN 50000 AND 70000 THEN 'Medium'
+           ELSE 'Low' 
+       END AS salary_level
+FROM Employees;
+
+
+Task 4:
+Assign a rank to employees based on their salary (highest salary = Rank 1).
+
+SELECT name, salary, 
+       RANK() OVER (ORDER BY salary DESC) AS salary_rank
+FROM Employees;
+

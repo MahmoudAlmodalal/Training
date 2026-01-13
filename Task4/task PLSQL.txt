@@ -1,0 +1,57 @@
+
+ 1. Procedure لحساب راتب موظف بعد إضافة علاوة
+
+CREATE OR REPLACE PROCEDURE calculate_bonus (
+    p_emp_id IN Employees.employee_id%TYPE,
+    p_bonus  IN NUMBER
+) IS
+BEGIN
+    UPDATE Employees
+    SET salary = salary + p_bonus
+    WHERE employee_id = p_emp_id;
+    
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Salary updated successfully for Employee ID: ' || p_emp_id);
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error updating salary.');
+        ROLLBACK;
+END;
+/
+
+ 2. Function لحساب العمر من تاريخ الميلاد
+
+CREATE OR REPLACE FUNCTION get_age (p_dob IN DATE) 
+RETURN NUMBER IS
+    v_age NUMBER;
+BEGIN
+    v_age := FLOOR(MONTHS_BETWEEN(SYSDATE, p_dob) / 12);
+    RETURN v_age;
+END;
+/
+
+
+ 3. Function تُعيد إجمالي رواتب موظفي قسم معين.
+
+CREATE OR REPLACE FUNCTION get_dept_total_salary (p_dept_id IN NUMBER) 
+RETURN NUMBER IS
+    v_total_salary NUMBER;
+BEGIN
+    SELECT SUM(salary) INTO v_total_salary
+    FROM Employees
+    WHERE department_id = p_dept_id;
+    
+    RETURN NVL(v_total_salary, 0);
+END;
+/
+
+
+  4. Package يحتوي Procedures وFunctions لإدارة جدول الموظفين بالكامل (إضافة، حذف، تعديل، عرض).
+
+CREATE OR REPLACE PACKAGE emp_management AS
+    PROCEDURE add_employee(p_name VARCHAR2, p_dept_id NUMBER, p_salary NUMBER);
+    PROCEDURE delete_employee(p_emp_id NUMBER);
+    PROCEDURE update_salary(p_emp_id NUMBER, p_new_salary NUMBER);
+    FUNCTION get_employee_name(p_emp_id NUMBER) RETURN VARCHAR2;
+END emp_management;
+/
